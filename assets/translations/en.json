@@ -1,0 +1,22 @@
+{
+    "common" : {
+      "signIn" : {
+        "title" : "Sign in now",
+        "subtitle" : "Please sign in to continue our app",
+        "forgetPassword" : "Forget password?",
+        "signInText" : "Sign in",
+        "noAccount" : "Don't have an account? ",
+        "signUpText" : "Sign up",
+        "orConnect" : "Or connect"
+      },
+      "signUp" : {
+        "title" : "Sign up now",
+        "subtitle" : "Please fill the details and create account",
+        "passwordMust" : "Password must be 8 character",
+        "signUpText" : "Sign up",
+        "alreadyHaveAccount" : "Already have an account? ",
+        "signInText" : "Sign in",
+        "orConnect" : "Or connect"
+      }
+    }
+  }
