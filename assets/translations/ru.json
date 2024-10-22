@@ -1,22 +1,24 @@
 {
     "common" : {
       "signIn" : {
-        "title" : "Войти",
-        "subtitle" : "Пожалуйста войдите для продолжения",
-        "forgetPassword" : "Забыли пароль? ",
+        "title" : "Авторизация",
+        "email" : "Почта",
+        "emailHint" : "Введите почту",
+        "password" : "Пароль",
+        "passwordHint" : "Введите пароль",
         "signInText" : "Войти",
-        "noAccount" : "Нет аккаунта?",
-        "signUpText" : "Зарегистрироваться",
-        "orConnect" : "Или войти через"
+        "noAccount" : "Нет аккаунта? ",
+        "signUpText" : "Зарегистрироваться"
       },
       "signUp" : {
         "title" : "Регистрация",
-        "subtitle" : "Введите информацию и создайте аккаунт",
-        "passwordMust" : "Пароль должен иметь 8 символов",
+        "email" : "Почта",
+        "emailHint" : "Введите почту",
+        "password" : "Пароль",
+        "passwordHint" : "Введите пароль",
         "signUpText" : "Зарегистрироваться",
         "alreadyHaveAccount" : "Уже есть аккаунт? ",
-        "signInText" : "Войти",
-        "orConnect" : "Или войти через"
+        "signInText" : "Войти"
       }
     }
   }

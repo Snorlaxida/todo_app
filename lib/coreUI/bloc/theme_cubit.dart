@@ -13,7 +13,7 @@ class ThemeCubit extends HydratedCubit<ThemeMode> {
     if (json['themeMode'] == 'dark') {
       return ThemeMode.dark;
     } else {
-      return ThemeMode.light; // Значение по умолчанию
+      return ThemeMode.light;
     }
   }
 

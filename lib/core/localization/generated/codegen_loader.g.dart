@@ -17,44 +17,48 @@ class CodegenLoader extends AssetLoader{
   static const Map<String,dynamic> en = {
   "common": {
     "signIn": {
-      "title": "Sign in now",
-      "subtitle": "Please sign in to continue our app",
-      "forgetPassword": "Forget password?",
+      "title": "Sign in",
+      "email": "Email",
+      "emailHint": "Enter your email",
+      "password": "Password",
+      "passwordHint": "Enter your password",
       "signInText": "Sign in",
-      "noAccount": "Don't have an account? ",
-      "signUpText": "Sign up",
-      "orConnect": "Or connect"
+      "noAccount": "Don't have account? ",
+      "signUpText": "Sign up"
     },
     "signUp": {
-      "title": "Sign up now",
-      "subtitle": "Please fill the details and create account",
-      "passwordMust": "Password must be 8 character",
+      "title": "Sign Up",
+      "email": "Email",
+      "password": "Password",
+      "emailHint": "Enter your email",
+      "passwordHint": "Enter your password",
       "signUpText": "Sign up",
-      "alreadyHaveAccount": "Already have an account? ",
-      "signInText": "Sign in",
-      "orConnect": "Or connect"
+      "alreadyHaveAccount": "Already have account? ",
+      "signInText": "Sign in"
     }
   }
 };
 static const Map<String,dynamic> ru = {
   "common": {
     "signIn": {
-      "title": "Войти",
-      "subtitle": "Пожалуйста войдите для продолжения",
-      "forgetPassword": "Забыли пароль? ",
+      "title": "Авторизация",
+      "email": "Почта",
+      "emailHint": "Введите почту",
+      "password": "Пароль",
+      "passwordHint": "Введите пароль",
       "signInText": "Войти",
-      "noAccount": "Нет аккаунта?",
-      "signUpText": "Зарегистрироваться",
-      "orConnect": "Или войти через"
+      "noAccount": "Нет аккаунта? ",
+      "signUpText": "Зарегистрироваться"
     },
     "signUp": {
       "title": "Регистрация",
-      "subtitle": "Введите информацию и создайте аккаунт",
-      "passwordMust": "Пароль должен иметь 8 символов",
+      "email": "Почта",
+      "emailHint": "Введите почту",
+      "password": "Пароль",
+      "passwordHint": "Введите пароль",
       "signUpText": "Зарегистрироваться",
       "alreadyHaveAccount": "Уже есть аккаунт? ",
-      "signInText": "Войти",
-      "orConnect": "Или войти через"
+      "signInText": "Войти"
     }
   }
 };

@@ -9,5 +9,6 @@ class AppTheme {
   static ThemeData darkMode = ThemeData(
     scaffoldBackgroundColor: Colors.deepPurple[900],
     brightness: Brightness.dark,
+    // textTheme: TextTheme()
   );
 }
