@@ -16,16 +16,6 @@ class ToDoScreen extends StatefulWidget {
 }
 
 class _ToDoScreenState extends State<ToDoScreen> {
-  List<TodoTask> myList = [
-    TodoTask(
-      userId: '1',
-      title: 'test1fsdklfjklsdf',
-      description: 'test1',
-      isCompleted: true,
-      deadline: DateTime.now(),
-    )
-  ];
-
   @override
   Widget build(BuildContext context) {
     context.read<TodoListCubit>().getTodoList();

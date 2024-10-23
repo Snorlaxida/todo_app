@@ -6,11 +6,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:todo_app/core/localization/localization_wrapper.dart';
 import 'package:todo_app/core/theme/app_theme.dart';
 import 'package:todo_app/firebase_options.dart';
 import 'package:todo_app/navigation/app_navigation.dart';
 import 'package:todo_app/coreUI/bloc/theme_cubit.dart';
+import 'package:todo_app/service/notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +23,23 @@ void main() async {
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
+  await Permission.scheduleExactAlarm.isDenied.then(
+    (value) {
+      if (value) {
+        Permission.scheduleExactAlarm.request();
+      }
+    },
+  );
+  await Permission.notification.isDenied.then(
+    (value) {
+      if (value) {
+        Permission.notification.request();
+      }
+    },
+  );
+  await initializeService();
+  // tz.initializeTimeZones();
+  // await initializeNotifications();
   runApp(const MainApp());
 }
 
