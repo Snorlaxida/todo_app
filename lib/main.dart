@@ -12,10 +12,13 @@ import 'package:todo_app/core/theme/app_theme.dart';
 import 'package:todo_app/firebase_options.dart';
 import 'package:todo_app/navigation/app_navigation.dart';
 import 'package:todo_app/coreUI/bloc/theme_cubit.dart';
+import 'package:todo_app/service/background_service.dart';
 import 'package:todo_app/service/notification_service.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  getPermissions();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   HydratedBloc.storage = await HydratedStorage.build(
@@ -23,23 +26,10 @@ void main() async {
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
-  await Permission.scheduleExactAlarm.isDenied.then(
-    (value) {
-      if (value) {
-        Permission.scheduleExactAlarm.request();
-      }
-    },
-  );
-  await Permission.notification.isDenied.then(
-    (value) {
-      if (value) {
-        Permission.notification.request();
-      }
-    },
-  );
-  await initializeService();
+
+  // await BackgroundService.initializeService();
   // tz.initializeTimeZones();
-  // await initializeNotifications();
+  // await NotificationService.initializeNotifications();
   runApp(const MainApp());
 }
 
@@ -59,21 +49,34 @@ class MainApp extends StatelessWidget {
               create: (context) => ThemeCubit(),
             ),
           ],
-          child:
-              BlocBuilder<ThemeCubit, ThemeMode>(builder: (context, themeMode) {
-            return MaterialApp.router(
-              debugShowCheckedModeBanner: false,
-              localizationsDelegates: context.localizationDelegates,
-              supportedLocales: context.supportedLocales,
-              locale: context.locale,
-              theme: AppTheme.lightMode,
-              darkTheme: AppTheme.darkMode,
-              themeMode: themeMode,
-              routerConfig: AppNavigation.router,
-            );
-          }),
+          child: BlocBuilder<ThemeCubit, ThemeMode>(
+            builder: (context, themeMode) {
+              return MaterialApp.router(
+                debugShowCheckedModeBanner: false,
+                localizationsDelegates: context.localizationDelegates,
+                supportedLocales: context.supportedLocales,
+                locale: context.locale,
+                theme: AppTheme.lightMode,
+                darkTheme: AppTheme.darkMode,
+                themeMode: themeMode,
+                routerConfig: AppNavigation.router,
+              );
+            },
+          ),
         );
       },
     );
+  }
+}
+
+void getPermissions() async {
+  var alarmStatus = await Permission.scheduleExactAlarm.status;
+  if (alarmStatus.isDenied) {
+    await Permission.scheduleExactAlarm.request();
+  }
+
+  var notificationStatus = await Permission.notification.status;
+  if (notificationStatus.isDenied) {
+    await Permission.notification.request();
   }
 }
